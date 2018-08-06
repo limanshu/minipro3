@@ -1,0 +1,39 @@
+{
+  "name": "manual_img",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "number",
+      "required": false,
+      "default": 1
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "goodsID": {
+      "type": "number",
+      "required": false
+    },
+    "created_at": {
+      "type": "date",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

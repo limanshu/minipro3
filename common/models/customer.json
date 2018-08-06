@@ -1,0 +1,54 @@
+{
+  "name": "customer",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "messages": {
+      "type": "hasMany",
+      "model": "messages",
+      "foreignKey": "customID",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "ordersCfs": {
+      "type": "hasMany",
+      "model": "orders_cf",
+      "foreignKey": "custom_leader",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "ordersPers": {
+      "type": "hasMany",
+      "model": "orders_per",
+      "foreignKey": "customID",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "payoffs": {
+      "type": "hasMany",
+      "model": "payoff",
+      "foreignKey": "customID",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "refunds": {
+      "type": "hasMany",
+      "model": "refund",
+      "foreignKey": "customID",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

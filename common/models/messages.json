@@ -1,0 +1,52 @@
+{
+  "name": "messages",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "goodsID": {
+      "type": "number",
+      "required": true
+    },
+    "content": {
+      "type": "string"
+    },
+    "star": {
+      "type": "number"
+    },
+    "created_at": {
+      "type": "date"
+    },
+    "customID": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "customer": {
+      "type": "belongsTo",
+      "model": "customer",
+      "foreignKey": "customID",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "goods": {
+      "type": "belongsTo",
+      "model": "goods",
+      "foreignKey": "goodsID",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

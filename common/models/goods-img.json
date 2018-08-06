@@ -1,0 +1,42 @@
+{
+  "name": "goods_img",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "goodsID": {
+      "type": "number",
+      "required": false
+    },
+    "status": {
+      "type": "number",
+      "required": false,
+      "default": 1
+    },
+    "type": {
+      "type": "string",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "created_at": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

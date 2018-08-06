@@ -1,0 +1,65 @@
+{
+  "name": "goods",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "normal_price": {
+      "type": "string"
+    },
+    "cf_price": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    }
+  },
+  "validations": [],
+  "relations": {
+    "goodsDetails": {
+      "type": "hasMany",
+      "model": "goods_detail",
+      "foreignKey": "goodsID",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "goodsImgs": {
+      "type": "hasMany",
+      "model": "goods_img",
+      "foreignKey": "goodsID",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "manualImgs": {
+      "type": "hasMany",
+      "model": "manual_img",
+      "foreignKey": "goodsID",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "messages": {
+      "type": "hasMany",
+      "model": "messages",
+      "foreignKey": "goodsID",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

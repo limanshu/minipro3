@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "mysql",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mysql",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mysql",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "mysql",
+    "public": false
+  },
+  "messages": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "customer": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "goods": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "goods_detail": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "orders_cf": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "orders_per": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "payoff": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "refund": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "rule": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "Container": {
+    "dataSource": "storage",
+    "public": true
+  },
+  "goods_img": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "manual_img": {
+    "dataSource": "mysql",
+    "public": true
+  }
+}

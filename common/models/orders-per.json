@@ -1,0 +1,51 @@
+{
+  "name": "orders_per",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cfID": {
+      "type": "number",
+      "required": true
+    },
+    "customID": {
+      "type": "number",
+      "required": true
+    },
+    "money_person": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string"
+    },
+    "status": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    }
+  },
+  "validations": [],
+  "relations": {
+    "customer": {
+      "type": "belongsTo",
+      "model": "customer",
+      "foreignKey": "customID",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "ordersCf": {
+      "type": "belongsTo",
+      "model": "orders_cf",
+      "foreignKey": "cfID",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

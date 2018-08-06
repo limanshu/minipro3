@@ -1,0 +1,44 @@
+{
+  "name": "goods_detail",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "color": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "rated_flow": {
+      "type": "string"
+    },
+    "quality": {
+      "type": "string"
+    },
+    "operation": {
+      "type": "string"
+    },
+    "voltage": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "goods": {
+      "type": "belongsTo",
+      "model": "goods",
+      "foreignKey": "goodsID",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,45 @@
+'use strict';
+module.exports = function(app) {
+  var mySql = app.dataSources.mysql;
+  mySql.automigrate('AccessToken', function(err) {
+    if (err) throw err;
+  });
+  mySql.automigrate('customer', function(err) {
+    if (err) throw err;
+
+    var customer = app.models.customer;
+    var Role = app.models.Role;
+    var RoleMapping = app.models.RoleMapping;
+
+    customer.create([
+      {
+        username: 'admin',
+        email: 'admin@e.com',
+        password: '12345',
+        emailVerified: true,
+      },
+    ], function(err, users) {
+      if (err) throw err;
+      mySql.automigrate('Role', function(err) {
+        if (err) throw err;
+        mySql.automigrate('RoleMapping', function(err) {
+          if (err) throw err;
+          var userid = users[0].id;
+          Role.create({
+            name: 'admin',
+          }, function(err, role) {
+            console.log('Created role:', role);
+
+            role.principals.create({
+              principalType: RoleMapping.USER,
+              principalId: userid,
+            }, function(err, principal) {
+              if (err) throw err;
+              console.log('Created principal:', principal);
+            });
+          });
+        });
+      });
+    });
+  });
+};

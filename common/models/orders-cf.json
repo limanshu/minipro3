@@ -1,0 +1,62 @@
+{
+  "name": "orders_cf",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "goodsID": {
+      "type": "number",
+      "required": true
+    },
+    "custom_leader": {
+      "type": "number",
+      "required": true
+    },
+    "money_total": {
+      "type": "string",
+      "required": true
+    },
+    "days_total": {
+      "type": "string",
+      "required": true
+    },
+    "created_at": {
+      "type": "date"
+    },
+    "updated_at": {
+      "type": "date"
+    },
+    "status": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "money_person": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "customer": {
+      "type": "belongsTo",
+      "model": "customer",
+      "foreignKey": "custom_leader",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "goods": {
+      "type": "belongsTo",
+      "model": "goods",
+      "foreignKey": "goodsID",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
